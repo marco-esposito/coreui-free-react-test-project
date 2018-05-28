@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
+import { connect } from 'react-redux';
 import {
   Badge,
   Button,
@@ -20,11 +21,12 @@ import {
   Row,
   Table,
 } from 'reactstrap';
+
 import Widget03 from '../../views/Widgets/Widget03'
+import { getPosts } from '../../store/actions';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 
-import { connect } from 'react-redux';
 
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
@@ -479,7 +481,7 @@ class DashboardBis extends Component {
   }
 
   componentDidMount () {
-
+    this.props.getPosts();
   }
 
   render() {
@@ -1165,8 +1167,8 @@ const mapStateToProps = state => ({
   posts: state.postsState.posts,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   getPosts: () => { dispatch()}
-// })
+const mapDispatchToProps = dispatch => ({
+  getPosts: () => { dispatch(getPosts) }
+})
 
-export default connect(mapStateToProps)(DashboardBis);
+export default connect(mapStateToProps, { getPosts })(DashboardBis);

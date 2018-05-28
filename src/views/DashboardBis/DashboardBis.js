@@ -484,8 +484,6 @@ class DashboardBis extends Component {
 
   render() {
 
-    console.log(this.props.posts[1]);
-
     return (
       <div className="animated fadeIn">
         <Row>

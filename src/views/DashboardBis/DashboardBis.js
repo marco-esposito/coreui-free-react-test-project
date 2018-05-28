@@ -484,8 +484,11 @@ class DashboardBis extends Component {
 
   render() {
 
+<<<<<<< HEAD
     console.log(this.props.posts[1]);
 
+=======
+>>>>>>> 9942c9c11dc8956bf7f0d256a70d377cc0fb140d
     return (
       <div className="animated fadeIn">
         <Row>
@@ -1164,6 +1167,7 @@ class DashboardBis extends Component {
 }
 
 const mapStateToProps = state => ({
+<<<<<<< HEAD
   posts: state.postsState.posts,
 });
 
@@ -1172,3 +1176,13 @@ const mapStateToProps = state => ({
 // })
 
 export default connect(mapStateToProps)(DashboardBis);
+=======
+  posts: state.posts,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getPosts: () => { dispatch()}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardBis);
+>>>>>>> 9942c9c11dc8956bf7f0d256a70d377cc0fb140d

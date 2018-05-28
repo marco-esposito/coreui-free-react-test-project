@@ -24,6 +24,8 @@ import Widget03 from '../../views/Widgets/Widget03'
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 
+import { connect } from 'react-redux';
+
 const brandPrimary = getStyle('--primary')
 const brandSuccess = getStyle('--success')
 const brandInfo = getStyle('--info')
@@ -451,7 +453,7 @@ const mainChartOpts = {
   },
 };
 
-class Dashboard extends Component {
+class DashboardBis extends Component {
   constructor(props) {
     super(props);
 
@@ -476,7 +478,13 @@ class Dashboard extends Component {
     });
   }
 
+  componentDidMount () {
+
+  }
+
   render() {
+
+    console.log(this.props.posts[1]);
 
     return (
       <div className="animated fadeIn">
@@ -578,6 +586,7 @@ class Dashboard extends Component {
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Col>
             <Card>
@@ -1154,4 +1163,12 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => ({
+  posts: state.postsState.posts,
+});
+
+// const mapDispatchToProps = dispatch => ({
+//   getPosts: () => { dispatch()}
+// })
+
+export default connect(mapStateToProps)(DashboardBis);

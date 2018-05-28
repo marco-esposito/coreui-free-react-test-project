@@ -1,5 +1,9 @@
-import { GET_POSTS_REQUEST, GET_POSTS_SUCCESS, GET_POSTS_FAILURE } from './constants';
+import { PUSH_LOADING, POP_LOADING } from './constants';
 
-export const getPosts = () => ({
-  type: GET_POSTS_REQUEST,
+export const pushLoading = () => ({
+  type: PUSH_LOADING,
+})
+
+export const popLoading = () => ({
+  type: POP_LOADING,
 })

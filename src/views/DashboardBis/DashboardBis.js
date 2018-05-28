@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import {
   Badge,
   Button,
@@ -22,8 +23,9 @@ import {
   Table,
 } from 'reactstrap';
 
-import Widget03 from '../../views/Widgets/Widget03'
-import { getPosts } from '../../store/actions';
+import Widget03 from '../../views/Widgets/Widget03';
+import { makeSelectLoading } from '../../selectors/global_reducer_selector';
+
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 
@@ -478,10 +480,6 @@ class DashboardBis extends Component {
     this.setState({
       radioSelected: radioSelected,
     });
-  }
-
-  componentDidMount () {
-    this.props.getPosts();
   }
 
   render() {
@@ -1163,12 +1161,8 @@ class DashboardBis extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.postsState.posts,
+const mapStateToProps = createStructuredSelector ({
+  loading: makeSelectLoading(),
 });
 
-const mapDispatchToProps = dispatch => ({
-  getPosts: () => { dispatch(getPosts) }
-})
-
-export default connect(mapStateToProps, { getPosts })(DashboardBis);
+export default connect(mapStateToProps)(DashboardBis);

@@ -4,7 +4,13 @@ import isEmpty from 'lodash/isEmpty';
 
 import PostItem from './PostItem.js'
 
-const ShowPosts = ({ posts }) => {
+const ShowPosts = ({ posts, loading }) => {
+  if (loading) return (
+    <tr>
+      <td colSpan={4}>Loading...</td>
+    </tr>
+  )
+  
   if (!isEmpty(posts)) {
     return (
       _.map(posts, post => (

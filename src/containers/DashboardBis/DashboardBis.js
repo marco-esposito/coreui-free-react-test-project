@@ -490,7 +490,7 @@ class DashboardBis extends Component {
 
   render() {
 
-    const { posts } = this.props;
+    const { posts, loading } = this.props;
 
     return (
       <div className="animated fadeIn">
@@ -620,7 +620,7 @@ class DashboardBis extends Component {
                   </tr>
                   </thead>
                   <tbody>
-                    <ShowPosts posts={posts} />
+                    <ShowPosts posts={posts} loading={loading} />
                   </tbody>
                 </Table>
               </CardBody>

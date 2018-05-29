@@ -17,8 +17,6 @@ import {
 
 const ShowForm = ({ onFieldChange, onSubmitForm, history }) => {
 
-  console.log(history);
-
   return (
     <Row>
       <Col xs="12" md="6">
@@ -33,7 +31,7 @@ const ShowForm = ({ onFieldChange, onSubmitForm, history }) => {
                   <Label htmlFor="text-input">Title</Label>
                 </Col>
                 <Col xs="12" md="9">
-                  <Input type="text" id="title" name="title" placeholder="Text"
+                  <Input type="text" id="title" name="title" placeholder="Text" invalid
                     onChange={onFieldChange}
                   />
                   <FormText color="muted">This is a help text</FormText>
@@ -41,10 +39,10 @@ const ShowForm = ({ onFieldChange, onSubmitForm, history }) => {
               </FormGroup>
               <FormGroup row>
                 <Col md="3">
-                  <Label htmlFor="text-input">Category</Label>
+                  <Label htmlFor="text-input">Categories</Label>
                 </Col>
                 <Col xs="12" md="9">
-                  <Input type="text" id="category" name="category" placeholder="Text"
+                  <Input type="text" id="categories" name="categories" placeholder="Text"
                     onChange={onFieldChange}
                   />
                   <FormText color="muted">This is a help text</FormText>

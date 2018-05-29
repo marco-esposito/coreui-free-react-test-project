@@ -5,7 +5,6 @@ import isEmpty from 'lodash/isEmpty';
 import PostItem from './PostItem.js'
 
 const ShowPosts = ({ posts, loading, error }) => {
-  console.log(error);
   if (loading) return (
     <tr><td colSpan={4}>Loading...</td></tr>
   )

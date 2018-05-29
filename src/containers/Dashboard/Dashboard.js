@@ -23,7 +23,6 @@ import {
   Table,
 } from 'reactstrap';
 
-import Widget03 from '../../views/Widgets/Widget03';
 import { makeSelectPosts, makeSelectLoading, makeSelectError } from '../../selectors/global_reducer_selector';
 import { getPosts } from '../../store/actions';
 import ShowPosts from '../../components/ShowPosts';
@@ -610,11 +609,8 @@ class DashboardBis extends Component {
                 <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
                   <thead className="thead-light">
                   <tr>
-                    {/* <th className="text-center"><i className="icon-people"></i></th> */}
                     <th className="text-center">ID</th>
-                    {/* <th className="text-center">Country</th> */}
                     <th>Title</th>
-                    {/* <th className="text-center">Payment Method</th> */}
                     <th>Categories</th>
                     <th>Content</th>
                   </tr>

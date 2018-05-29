@@ -16,7 +16,7 @@ class AddPost extends Component {
   }
 
   onSubmitForm = () => {
-    this.props.addPost(this.state);
+    this.props.addPost(this.state, this.props.history);
   }
 
   render () {

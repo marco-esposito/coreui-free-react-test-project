@@ -40,6 +40,7 @@ export function* addPostSaga (action) {
       type: ADD_POST_SUCCESS,
       post
     });
+    action.history.push('/dashboard');
   } catch (error) {
       yield put({
         type: ADD_POST_FAILURE,

@@ -11,7 +11,8 @@ export const getPosts = () => ({
   type: GET_POSTS_REQUEST,
 })
 
-export const addPost = (post) => ({
+export const addPost = (post, history) => ({
   type: ADD_POST_REQUEST,
-  post
+  post,
+  history,
 })

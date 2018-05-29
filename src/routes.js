@@ -92,6 +92,11 @@ const Tooltips = Loadable({
   loading: Loading,
 });
 
+const AddPost = Loadable({
+  loader: () => import('./containers/AddPost'),
+  loading: Loading,
+})
+
 const BrandButtons = Loadable({
   loader: () => import('./views/Buttons/BrandButtons'),
   loading: Loading,
@@ -177,6 +182,7 @@ const Widgets = Loadable({
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  { path: '/addpost', name: 'AddPost', component: AddPost },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },

@@ -118,7 +118,7 @@ const Charts = Loadable({
 });
 
 const Dashboard = Loadable({
-  loader: () => import('./views/DashboardBis'),
+  loader: () => import('./containers/DashboardBis'),
   loading: Loading,
 });
 

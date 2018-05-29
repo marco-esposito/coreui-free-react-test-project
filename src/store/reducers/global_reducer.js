@@ -1,22 +1,37 @@
-import { PUSH_LOADING, POP_LOADING } from '../actions/constants';
+import _ from 'lodash';
+
+import {
+  GET_POSTS_REQUEST,
+  GET_POSTS_SUCCESS,
+  GET_POSTS_FAILURE,
+} from '../actions/constants';
 
 const initialState = {
-  loading: 0,
+  loading: false,
+  error: false,
+  posts: {},
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case PUSH_LOADING:
+    case GET_POSTS_REQUEST:
     return {
       ...state,
-      loading: state.loading + 1,
+      loading: true,
+      error: false,
     }
-    case POP_LOADING:
-    if (state.loading === 0) return state;
+    case GET_POSTS_SUCCESS:
     return {
       ...state,
-      loading: state.loading - 1,
+      loading: false,
+      posts: _.keyBy(action.posts, 'id'),
     }
+    case GET_POSTS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      }
     default:
       return state;
   }

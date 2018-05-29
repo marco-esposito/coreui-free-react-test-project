@@ -4,13 +4,14 @@ import isEmpty from 'lodash/isEmpty';
 
 import PostItem from './PostItem.js'
 
-const ShowPosts = ({ posts, loading }) => {
+const ShowPosts = ({ posts, loading, error }) => {
+  console.log(error);
   if (loading) return (
-    <tr>
-      <td colSpan={4}>Loading...</td>
-    </tr>
+    <tr><td colSpan={4}>Loading...</td></tr>
   )
-  
+  if (error !== false) return (
+    <tr><td colSpan={4}>Something went wrong, please try again!</td></tr>
+  )
   if (!isEmpty(posts)) {
     return (
       _.map(posts, post => (
@@ -22,9 +23,7 @@ const ShowPosts = ({ posts, loading }) => {
     );
   } else {
     return (
-      <tr>
-        <td colSpan={4}>Empty list</td>
-    </tr>
+      <tr><td colSpan={4}>Empty list</td></tr>
     )
   }
 };

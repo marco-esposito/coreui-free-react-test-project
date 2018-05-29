@@ -24,7 +24,7 @@ import {
 } from 'reactstrap';
 
 import Widget03 from '../../views/Widgets/Widget03';
-import { makeSelectPosts } from '../../selectors/global_reducer_selector';
+import { makeSelectPosts, makeSelectLoading, makeSelectError } from '../../selectors/global_reducer_selector';
 import { getPosts } from '../../store/actions';
 import ShowPosts from '../../components/ShowPosts';
 
@@ -490,7 +490,7 @@ class DashboardBis extends Component {
 
   render() {
 
-    const { posts, loading } = this.props;
+    const { posts, loading, error } = this.props;
 
     return (
       <div className="animated fadeIn">
@@ -620,7 +620,7 @@ class DashboardBis extends Component {
                   </tr>
                   </thead>
                   <tbody>
-                    <ShowPosts posts={posts} loading={loading} />
+                    <ShowPosts posts={posts} loading={loading} error={error}/>
                   </tbody>
                 </Table>
               </CardBody>
@@ -634,6 +634,8 @@ class DashboardBis extends Component {
 
 const mapStateToProps = createStructuredSelector ({
   posts: makeSelectPosts(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
 });
 
 export default connect(mapStateToProps, { getPosts })(DashboardBis);

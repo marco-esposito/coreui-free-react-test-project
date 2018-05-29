@@ -7,6 +7,11 @@ const selectGlobal = (state) => state.globalState;
    (globalState) => globalState.loading,
  );
 
+ const makeSelectError = () => createSelector(
+   selectGlobal,
+   (globalState) => globalState.error,
+ );
+
  const makeSelectPosts = () => createSelector(
    selectGlobal,
    (globalState) => globalState.posts,
@@ -14,6 +19,7 @@ const selectGlobal = (state) => state.globalState;
 
 export {
   makeSelectLoading,
+  makeSelectError,
   makeSelectPosts,
   // Others...
 };

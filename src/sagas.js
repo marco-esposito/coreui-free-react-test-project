@@ -20,10 +20,10 @@ export function* getPostsSaga () {
       type: GET_POSTS_SUCCESS,
       posts
     });
-  } catch (e) {
+  } catch (error) {
     yield put ({
       type: GET_POSTS_FAILURE,
-      error: e
+      error
     })
   }
 }

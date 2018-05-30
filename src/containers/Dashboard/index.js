@@ -458,7 +458,7 @@ const mainChartOpts = {
   },
 };
 
-class DashboardBis extends Component {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
 
@@ -634,4 +634,4 @@ const mapStateToProps = createStructuredSelector ({
   error: makeSelectError(),
 });
 
-export default connect(mapStateToProps, { getPosts })(DashboardBis);
+export default connect(mapStateToProps, { getPosts })(Dashboard);

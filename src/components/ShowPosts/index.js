@@ -8,7 +8,7 @@ import PostItem from './PostItem.js'
 
 const ShowPosts = ({ posts, loading, error, history }) => {
 
-  const onSelectPost = (id) => {
+  const handleSelectPost = (id) => {
     history.push(`/editpost/${id}`);
   }
 
@@ -24,7 +24,7 @@ const ShowPosts = ({ posts, loading, error, history }) => {
         <PostItem
           key={post.id}
           post={post}
-          onSelectPost={onSelectPost}
+          onSelectPost={handleSelectPost}
         />
       ))
     );

@@ -598,7 +598,6 @@ class Dashboard extends Component {
             </Row>
           </CardBody>
         </Card>
-
         <Row>
           <Col>
             <Card>

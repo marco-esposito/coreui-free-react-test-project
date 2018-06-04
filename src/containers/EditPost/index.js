@@ -8,19 +8,36 @@ import { getPost } from '../../store/actions';
 
 class EditPost extends Component {
 
-  state = {};
+  state = {
+    title: '',
+    categories: '',
+    content: '',
+  };
 
   componentDidMount () {
-    const { match: {params: {id}} } = this.props;
-    !this.props.post && this.props.getPost(id);
+    const { post, getPost, match: {params: {id}} } = this.props;
+    !post && getPost(id);
+  }
+
+  componentWillReceiveProps ({ post }) {
+    this.setState(post);
+  }
+
+  handleFieldChange = (evt) => {
+    this.setState({
+      ...this.state,
+      [evt.target.name]: evt.target.value,
+    });
   }
 
   render () {
+    console.log(this.state);
     return (
       <div className="animated fadeIn">
         <ShowForm
-          onFieldChange={this.onFieldChange}
-          onSubmitForm={this.onSubmitForm}
+          onFieldChange={this.handleFieldChange}
+          onSubmitForm={this.handleSubmitForm}
+          post={this.state}
         />
       </div>
     )

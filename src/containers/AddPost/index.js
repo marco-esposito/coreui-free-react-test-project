@@ -8,24 +8,23 @@ class AddPost extends Component {
 
   state = {};
 
-  onFieldChange = (evt) => {
+  handleFieldChange = (evt) => {
     this.setState({
       ...this.state,
       [evt.target.name]: evt.target.value,
     });
   }
 
-  onSubmitForm = () => {
+  handleSubmitForm = () => {
     this.props.addPost(this.state, this.props.history);
   }
 
   render () {
-
     return (
       <div className="animated fadeIn">
         <ShowForm
-          onFieldChange={this.onFieldChange}
-          onSubmitForm={this.onSubmitForm}
+          onFieldChange={this.handleFieldChange}
+          onSubmitForm={this.handleSubmitForm}
         />
       </div>
     )

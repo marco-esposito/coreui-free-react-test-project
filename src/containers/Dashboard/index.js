@@ -25,7 +25,7 @@ import {
 
 import { makeSelectPosts, makeSelectLoading, makeSelectError } from '../../selectors/global_reducer_selector';
 import { getPosts } from '../../store/actions';
-import ShowPosts from '../../components/ShowPosts';
+import ShowPosts from '../../containers/ShowPosts';
 
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';

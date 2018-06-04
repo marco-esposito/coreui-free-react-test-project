@@ -458,7 +458,7 @@ const mainChartOpts = {
   },
 };
 
-class DashboardBis extends Component {
+class Dashboard extends Component {
   constructor(props) {
     super(props);
 

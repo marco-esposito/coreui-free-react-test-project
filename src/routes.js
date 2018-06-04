@@ -97,6 +97,11 @@ const AddPost = Loadable({
   loading: Loading,
 })
 
+const EditPost = Loadable({
+  loader: () => import('./containers/EditPost'),
+  loading: Loading,
+})
+
 const BrandButtons = Loadable({
   loader: () => import('./views/Buttons/BrandButtons'),
   loading: Loading,
@@ -183,6 +188,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/addpost', name: 'AddPost', component: AddPost },
+  { path: '/editpost/:id', name: 'EditPost', component: EditPost },
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },

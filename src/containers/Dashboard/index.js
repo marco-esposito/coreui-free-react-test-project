@@ -639,4 +639,4 @@ const mapStateToProps = createStructuredSelector ({
 // })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(DashboardBis);
-export default connect(mapStateToProps, { getPosts })(DashboardBis);
+export default connect(mapStateToProps, { getPosts })(Dashboard);

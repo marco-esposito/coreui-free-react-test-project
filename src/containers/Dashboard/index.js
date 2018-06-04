@@ -634,4 +634,9 @@ const mapStateToProps = createStructuredSelector ({
   error: makeSelectError(),
 });
 
+// const mapDispatchToProps = (dispatch) => ({
+//   getPosts: () => { dispatch( getPosts() ) }
+// })
+
+// export default connect(mapStateToProps, mapDispatchToProps)(DashboardBis);
 export default connect(mapStateToProps, { getPosts })(DashboardBis);

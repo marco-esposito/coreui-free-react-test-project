@@ -606,17 +606,22 @@ class Dashboard extends Component {
                 Post List
               </CardHeader>
               <CardBody>
-                <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
+                <Table responsive className="table-outline mb-0 d-none d-sm-table">
                   <thead className="thead-light">
                   <tr>
                     <th className="text-center">ID</th>
                     <th>Title</th>
                     <th>Categories</th>
                     <th>Content</th>
+                    <th></th>
                   </tr>
                   </thead>
                   <tbody>
-                    <ShowPosts posts={posts} loading={loading} error={error}/>
+                    <ShowPosts
+                      posts={posts}
+                      loading={loading}
+                      error={error}
+                    />
                   </tbody>
                 </Table>
               </CardBody>

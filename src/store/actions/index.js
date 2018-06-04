@@ -8,6 +8,9 @@ import {
   ADD_POST_REQUEST,
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
+  EDIT_POST_REQUEST,
+  EDIT_POST_SUCCESS,
+  EDIT_POST_FAILURE,
 } from './constants';
 
 export const getPosts = () => ({
@@ -21,6 +24,12 @@ export const getPost = (id) => ({
 
 export const addPost = (post, history) => ({
   type: ADD_POST_REQUEST,
+  post,
+  history,
+})
+
+export const editPost = (post, history) => ({
+  type: EDIT_POST_REQUEST,
   post,
   history,
 })

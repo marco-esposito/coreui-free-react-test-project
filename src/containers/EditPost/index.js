@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { makeSelectPost, makeSelectPosts } from '../../selectors/global_reducer_selector';
 import ShowForm from './ShowForm';
-import { getPost } from '../../store/actions';
+import { getPost, editPost } from '../../store/actions';
 
 class EditPost extends Component {
 
@@ -30,8 +30,11 @@ class EditPost extends Component {
     });
   }
 
+  handleSubmitForm = () => {
+    this.props.editPost(this.state, this.props.history);
+  }
+
   render () {
-    console.log(this.state);
     return (
       <div className="animated fadeIn">
         <ShowForm
@@ -48,4 +51,4 @@ const mapStateToProps = (state, ownProps) => createStructuredSelector({
   post: makeSelectPost(ownProps.match.params.id),
 })
 
-export default connect(mapStateToProps, { getPost })(EditPost);
+export default connect(mapStateToProps, { getPost, editPost })(EditPost);

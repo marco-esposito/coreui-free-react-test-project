@@ -10,6 +10,9 @@ import {
   ADD_POST_REQUEST,
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
+  EDIT_POST_REQUEST,
+  EDIT_POST_SUCCESS,
+  EDIT_POST_FAILURE,
 } from '../actions/constants';
 
 const initialState = {
@@ -23,6 +26,7 @@ export default (state = initialState, action) => {
     case GET_POSTS_REQUEST:
     case GET_POST_REQUEST:
     case ADD_POST_REQUEST:
+    case EDIT_POST_REQUEST:
     return {
       ...state,
       loading: true,
@@ -44,6 +48,7 @@ export default (state = initialState, action) => {
       }
     }
     case ADD_POST_SUCCESS:
+    case EDIT_POST_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -55,6 +60,7 @@ export default (state = initialState, action) => {
       case GET_POSTS_FAILURE:
       case GET_POST_FAILURE:
       case ADD_POST_FAILURE:
+      case EDIT_POST_FAILURE:
       return {
         ...state,
         loading: false,

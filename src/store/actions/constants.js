@@ -7,3 +7,6 @@ export const GET_POST_FAILURE = 'project.name/GET_POST_FAILURE';
 export const ADD_POST_REQUEST = 'project.name/ADD_POST_REQUEST';
 export const ADD_POST_SUCCESS = 'project.name/ADD_POST_SUCCESS';
 export const ADD_POST_FAILURE = 'project.name/ADD_POST_FAILURE';
+export const EDIT_POST_REQUEST = 'project.name/EDIT_POST_REQUEST';
+export const EDIT_POST_SUCCESS = 'project.name/EDIT_POST_SUCCESS';
+export const EDIT_POST_FAILURE = 'project.name/EDIT_POST_FAILURE';

@@ -16,7 +16,7 @@ import {
   Row,
 } from 'reactstrap';
 
-const ShowForm = ({ onFieldChange, onSubmitForm, history, match: {params: {id}} }) => {
+const ShowForm = ({ onFieldChange, onSubmitForm, history }) => {
 
   return (
     <Row>

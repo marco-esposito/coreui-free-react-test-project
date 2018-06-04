@@ -17,9 +17,15 @@ const selectGlobal = (state) => state.globalState;
    (globalState) => globalState.posts,
  )
 
+ const makeSelectPost = (id) => createSelector(
+   selectGlobal,
+   (globalState) => globalState.posts[id],
+ )
+
 export {
   makeSelectLoading,
   makeSelectError,
   makeSelectPosts,
+  makeSelectPost,
   // Others...
 };

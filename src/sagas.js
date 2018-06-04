@@ -6,6 +6,9 @@ import {
   GET_POSTS_REQUEST,
   GET_POSTS_SUCCESS,
   GET_POSTS_FAILURE,
+  GET_POST_REQUEST,
+  GET_POST_SUCCESS,
+  GET_POST_FAILURE,
   ADD_POST_REQUEST,
   ADD_POST_SUCCESS,
   ADD_POST_FAILURE,
@@ -13,6 +16,7 @@ import {
 import { BASE_URL, API_KEY } from './config.js';
 
 const getPostsHelper = () => axios.get(`${BASE_URL}/posts?key=${API_KEY}`);
+const getPostHelper = (id) => axios.get(`${BASE_URL}/posts/${id}?key=${API_KEY}`)
 const addPostHelper = (post) => axios.post(`${BASE_URL}/posts?key=${API_KEY}`, post);
 
 // Individual exports for testing
@@ -29,6 +33,22 @@ export function* getPostsSaga () {
       type: GET_POSTS_FAILURE,
       error
     })
+  }
+}
+
+export function* getPostSaga (action) {
+  try {
+    const response = yield call(() => getPostHelper(action.id));
+    const post = response.data;
+    yield put({
+      type: GET_POST_SUCCESS,
+      post
+    });
+  } catch (error) {
+    yield put({
+      type: GET_POST_FAILURE,
+      error
+    });
   }
 }
 
@@ -58,5 +78,6 @@ export default function* rootSaga() {
   // It will be cancelled automatically on component unmount
   // yield takeLatest(DEFAULT_ACTION, defaultSaga);
   yield takeLatest(GET_POSTS_REQUEST, getPostsSaga);
+  yield takeLatest(GET_POST_REQUEST, getPostSaga);
   yield takeLatest(ADD_POST_REQUEST, addPostSaga);
 }

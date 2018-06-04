@@ -26,7 +26,6 @@ class AddPost extends Component {
         <ShowForm
           onFieldChange={this.onFieldChange}
           onSubmitForm={this.onSubmitForm}
-          // history={this.props.history}
         />
       </div>
     )
